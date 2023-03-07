@@ -5,11 +5,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  plugins: ['@typescript-eslint'],
+  extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended'],
   root: true,
   env: {
     node: true,
@@ -21,5 +18,19 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        ts: 'never',
+      },
+    ],
+    'import/prefer-default-export': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
   },
 };
